@@ -1,0 +1,8 @@
+{
+  "name": "sublime-lucy",
+  "version": "0.0.13",
+  "description": "generate awesome names for projects",
+  "main": "index.js",
+  "author": "hello@zoltansimon.me",
+  "license": "MIT"
+}
