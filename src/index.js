@@ -17,8 +17,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
+import Link from "@material-ui/core/Link";
 
-import { FileCopy, Close , Refresh} from "@material-ui/icons";
+import { FileCopy, Close , Refresh, GitHub } from "@material-ui/icons";
 const useStyles = makeStyles({
   card: {
     display: "flex",
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
 });
 const meta = {
   title: "Sublime-lucy",
-  description: "This is a name generator for your next side project",
+  description: "This is a working title generator for your next project",
   date: "2020",
 };
 const App = () => {
@@ -54,10 +55,10 @@ const App = () => {
             <div className={classes.cardDetails}>
               <CardContent>
                 <Typography component="h2" variant="h5">
-                  {meta.title}
+                  {meta.title} 
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {meta.date} - {meta.description}
+                  {meta.description} - {meta.date} - <GitHub style={{ fontSize: 16 }} /> <Link color="inherit" href="https://github.com/zsim0n/sublime-lucy">GitHub repo</Link>
                 </Typography>
                 <Typography variant="subtitle1" color="primary">
                   {name}
@@ -113,15 +114,3 @@ const App = () => {
   );
 };
 ReactDOM.render(<App />, document.getElementById("root"));
-
-/*function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-ready(function() {
-  document.write(nameGenerator.generate());
-})*/
