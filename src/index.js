@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import nameGenerator from "@stackbit/artisanal-names";
+import { nanoid } from 'nanoid'
 import Clipboard from "react-clipboard-polyfill";
 
 import "fontsource-roboto";
@@ -41,7 +42,7 @@ const meta = {
 };
 const App = () => {
   const classes = useStyles();
-  const [name, setName] = useState(nameGenerator.generate());
+  const [name, setName] = useState(nameGenerator.generate() + '-'+nanoid(5));
   const [copyed, setCopyed] = useState(false);
   const onCopy = () => setCopyed(true);
   const handleClose = () => setCopyed(false);
@@ -93,7 +94,7 @@ const App = () => {
                 </Typography>
                 <Button
                   variant="contained" color="primary" disableElevation  startIcon={<Refresh />}
-                  onClick={() => setName(nameGenerator.generate())}
+                  onClick={() => setName(nameGenerator.generate() + '-'+nanoid(5))}
                 >
                   Click!
                 </Button>

@@ -39,6 +39,7 @@
     "@material-ui/icons": "^4.9.1",
     "@stackbit/artisanal-names": "^1.0.1",
     "fontsource-roboto": "^2.2.3",
+    "nanoid": "^3.1.10",
     "react": "^16.4.1",
     "react-clipboard-polyfill": "^1.1.0",
     "react-dom": "^16.4.1"
