@@ -1,46 +1,53 @@
 # Sublime-lucy
 
-## Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7a300341-ccb2-46ca-9084-ded422667a16/deploy-status)](https://app.netlify.com/sites/sublime-lucy/deploys)
 
 ## About <a name = "about"></a>
 
-
-
-## Getting Started <a name = "getting_started"></a>
-
-VisitThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-You will need [netlify](https://netlify.com) account and  netlify-cli if you want to publish the project.
-
-```
-yarn global add netlify-cli
-```
-
-### Installing
-
-The s
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
+A minimalistic project to generate uniqe working title for projects using the [@stackbit/artisanal-names](https://github.com/stackbithq/artisanal-names) lib.
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+Visit the [site](https://sublime-lucy.netlify.app/#) and pick a name on the clipboard
+
+Or 
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/zsim0n/sublime-lucy)
+
+## Installing <a name = "install"></a>
+
+``` zsh
+git clone...
+cd sublime-lucy
+yarn install
+yarn start
+```
+
+and visit http://localhost:8080 or access the API http://localhost:9000
+
+## CLI <a name = "cli"></a>
+
+The project exposes a simple API, the API can be used to create a shell function. (inspired by [gitignore.io CLI](https://docs.gitignore.io/install/command-line)
+
+**zsh**
+
+``` zsh
+echo "function sublime-lucy() { curl -sLw "\n" https://sublime-lucy.netlify.app/.netlify/functions/sublime-lucy ;}" >> \
+~/.zshrc && source ~/.zshrc
+```
+
+#### Example <a name = "example"></a>
+Creating a new project with help of sublime-lucy and [gitignore.io CLI - gi](https://docs.gitignore.io/install/command-line)
+
+``` zsh
+mkdir $(sublime-lucy)
+cd $_
+gi react,node,macOs,visualstudiocode > .gitignore
+git init
+git add .
+git commit -am "Initial commit"
+```
+
+## Additional
+
+The project itself a barebone blueprint for developing apps with react - Material UI and Netlify Functions (lamda) with webpack.
