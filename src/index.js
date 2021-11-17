@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import nameGenerator from "@stackbit/artisanal-names";
+import { nanoid } from "nanoid"
 import Clipboard from "react-clipboard-polyfill";
 
 import "fontsource-roboto";
@@ -18,7 +19,6 @@ import Hidden from "@material-ui/core/Hidden";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import Link from "@material-ui/core/Link";
-
 import { FileCopy, Close , Refresh, GitHub } from "@material-ui/icons";
 const useStyles = makeStyles({
   card: {
@@ -43,6 +43,7 @@ const meta = {
 const App = () => {
   const classes = useStyles();
   const [name, setName] = useState(nameGenerator.generate());
+  const [imagesrc, setImageSrc] = useState("https://picsum.photos/640/360?"+nanoid());
   const [copyed, setCopyed] = useState(false);
   const onCopy = () => setCopyed(true);
   const handleClose = () => setCopyed(false);
@@ -94,16 +95,16 @@ const App = () => {
                 </Typography>
                 <Button
                   variant="contained" color="primary" disableElevation  startIcon={<Refresh />}
-                  onClick={() => setName(nameGenerator.generate())}
+                  onClick={() => {setName(nameGenerator.generate());setImageSrc("https://picsum.photos/640/360?"+nanoid())}}
                 >
                   Click!
                 </Button>
               </CardContent>
             </div>
             <Hidden xsDown>
-              <CardMedia
+              <CardMedia 
                 className={classes.cardMedia}
-                image="https://picsum.photos/640/360"
+                image={imagesrc}
                 title="https://picsum.photos/640/360"
               />
             </Hidden>
