@@ -6,7 +6,7 @@ module.exports = {
   mode: "development",
   output: {
     path: path.resolve(__dirname, "dist/client"),
-    filename: "main.js",
+    filename: "[name].js",
   },
   optimization: {
     splitChunks: {
@@ -23,6 +23,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
