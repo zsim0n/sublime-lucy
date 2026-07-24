@@ -19,20 +19,28 @@ Or
 ``` zsh
 git clone...
 cd sublime-lucy
-yarn install
-yarn start
+npm install
+npm run dev
 ```
 
-and visit http://localhost:8080 or access the API http://localhost:9000
+and visit http://localhost:5173
+
+To run the app together with the Netlify Function locally, use the Netlify CLI:
+
+``` zsh
+npm run dev:netlify
+```
 
 ## CLI <a name = "cli"></a>
 
-The project exposes a simple API, the API can be used to create a shell function. (inspired by [gitignore.io CLI](https://docs.gitignore.io/install/command-line)
+The project exposes a simple API, the API can be used to create a shell function. (inspired by [gitignore.io CLI](https://docs.gitignore.io/install/command-line))
+
+The function is served at both `/.netlify/functions/sublime-lucy` and the alias `/api/name`, and accepts `?count=N` (1–50) and `?format=json`.
 
 **zsh**
 
 ``` zsh
-echo "function sublime-lucy() { curl -sLw "\n" https://sublime-lucy.netlify.app/.netlify/functions/sublime-lucy ;}" >> \
+echo "function sublime-lucy() { curl -sLw '\n' https://sublime-lucy.netlify.app/api/name ;}" >> \
 ~/.zshrc && source ~/.zshrc
 ```
 
@@ -50,4 +58,4 @@ git commit -am "Initial commit"
 
 ## Additional
 
-The project itself a barebone blueprint for developing apps with react - Material UI and Netlify Functions (lamda) with webpack.
+The project itself is a barebone blueprint for developing apps with React + Pure.css and Netlify Functions, built with Vite.
