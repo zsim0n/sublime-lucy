@@ -1,3 +1,8 @@
+# Single source of truth for the Netlify build.
+# These values take precedence over the dashboard, so leave the matching
+# UI fields empty (Build command, Publish directory, Functions directory).
+# Node version lives in .nvmrc (used by both Netlify and local `nvm use`).
+
 [build]
   command = "npm run build"
   publish = "dist"
